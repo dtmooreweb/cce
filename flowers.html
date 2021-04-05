@@ -1,18 +1,124 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="./main.css">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Flower Family Explorer</title>
 
-<body>
+    <!--favicon-->
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+    <!-- Bootstrap core CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="./main.css?date=1">
     
-    <div class="text">
-        <p>Flowers are</p>
+  </head>
+  <body>
+    
+<header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">Flower Family Explorer</h4>
+          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Contact</h4>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Follow on Twitter</a></li>
+            <li><a href="#" class="text-white">Like on Facebook</a></li>
+            <li><a href="#" class="text-white">Email me</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <img id="main-icon" src="main-icon.png">
+    </div>
+  </div>
+</header>
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Flower Family Explorer</h1>
+        <p class="lead text-muted">Click a family below to explore it's branches!</p>
         <p>
-          <span class="word wisteria">fragrant.</span>
-          <span class="word belize">wonderful.</span>
-          <span class="word pomegranate">lovely.</span>
-          <span class="word green">beautiful.</span>
-          <span class="word midnight">natural.</span>
+          <button class="btn btn-primary my-2" onclick='loadJSON("https://data.sfgov.org/resource/vmnk-skih.json?family_name=Lamiaceae")'>Lamiaceae</button>
+          <button class="btn btn-secondary my-2" onclick='loadJSON("https://data.sfgov.org/resource/vmnk-skih.json?family_name=Asteraceae")'>Asteraceae</button>
         </p>
-      </div>      
-</body>
-<script type="text/javascript" src="./main.js"></script>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div id="content" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          
+        <!--<div class="col">
+          <div class="card shadow-sm">
+            <div class="card-head">
+            </div>
+            <div class="card-body">
+                <div class="card-left">
+                    <p class="card-name">Pearly Everlasting</p>
+                    <p class="card-latin">(Anaphalis margaritacea)</p>
+                    <p class="card-type">Perennial</p>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                </div>
+                <div class="card-right">
+                    <img class="card-icon-xl" src="./icon.png"> 
+                    <p class="size-text">1-3 Feet</p>
+                </div>
+            </div>
+          </div>
+        </div>-->
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+</main>
+
+
+    <div id="content2"></div>
+    
+
+<footer class="text-muted py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+  </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+      <script type="text/javascript" src="./main.js"></script>
+  </body>
+</html>
+
+
+    
+

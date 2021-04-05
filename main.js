@@ -1,55 +1,132 @@
-var words = document.getElementsByClassName('word');
-var wordArray = [];
-var currentWord = 0;
+function loadJSON(url) {
+    let request = new XMLHttpRequest();
 
-words[currentWord].style.opacity = 1;
-for (var i = 0; i < words.length; i++) {
-  splitLetters(words[i]);
+    request.open('GET', url, false);
+    request.onreadystatechange = function() {
+        if (request.readyState == 4 && request.status == 200) {
+            const data = JSON.parse(request.responseText);
+            //document.getElementById('content').innerHTML = JSON.stringify(data);
+            //console.log(data.length);
+            
+        let str = '';
+        let html = ``;
+        for (var i = 0; i < data.length; i++){
+          var obj = data[i];
+          
+          let size = '';
+          if(obj.size_at_maturity == "< 1 ft") {
+              size = 'sm';
+          } else if (obj.size_at_maturity == "1-3 ft") {
+              size = 'md';
+          } else if (obj.size_at_maturity == "4-6 ft") {
+              size = 'lg';
+          } else {
+              size = 'xl';
+          }
+          
+        var color_set = '#95f7a0';
+        var color = '';
+        color += obj.flower_color;
+        var check = color.includes("White");
+        if(check) {
+            color_set = '#f5f5f5';
+        }
+        var color = '';
+        color += obj.flower_color;
+        var check = color.includes("Yellow");
+        if(check) {
+            color_set = '#f2ff91';
+        }
+        var color = '';
+        color += obj.flower_color;
+        var check = color.includes("Pink");
+        if(check) {
+            color_set = '#ff8cb4';
+        }
+        var color = '';
+        color += obj.flower_color;
+        var check = color.includes("Indigo");
+        if(check) {
+            color_set = '#6652ff';
+        }
+        var color = '';
+        color += obj.flower_color;
+        var check = color.includes("Magenta");
+        if(check) {
+            color_set = '#ff8afb';
+        }
+        var color = '';
+        color += obj.flower_color;
+        var check = color.includes("Purple");
+        if(check) {
+            color_set = '#c88aff';
+        }
+        var color = '';
+        color += obj.flower_color;
+        var check = color.includes("Orange");
+        if(check) {
+            color_set = '#ffbca3';
+        }
+        var color = '';
+        color += obj.flower_color;
+        var check = color.includes("Red");
+        if(check) {
+            color_set = '#ff9191';
+        }
+        var color = '';
+        color += obj.flower_color;
+        var check = color.includes("Black");
+        if(check) {
+            color_set = '#4f4949';
+        }
+        var color = '';
+        color += obj.flower_color;
+        var check = color.includes("Blue");
+        if(check) {
+            color_set = '#adbaff';
+        }
+        
+        
+          
+          html += `
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-head" style="background-color: ` + color_set + `">
+            </div>
+            <div class="card-body">
+                <div class="card-left">
+                    <p class="card-name">` + obj.common_name + `</p>
+                    <p class="card-latin">(` + obj.latin_name + `)</p>
+                    <p class="card-type">` + obj.plant_type + `</p>
+                    <a href="https://www.google.com/search?q=` + obj.common_name + `" target="_blank"><button type="button" class="view-button btn btn-sm btn-outline-secondary">View</button></a>
+                </div>
+                <div class="card-right">
+                    <img class="card-icon-` + size + `" src="./icon.png"> 
+                    <p class="size-text">` + obj.size_at_maturity + `</p>
+                </div>
+            </div>
+          </div>
+        </div>
+          `;
+          
+          
+          for (var key in obj){
+            var value = obj[key];
+            str += key + ": " + value + "<br>";
+          }
+          
+          
+          
+          str += "<br>";
+        }
+           document.getElementById('content').innerHTML = html; 
+           document.getElementById('content2').innerHTML = str; 
+        
+        }
+    };
+    request.send();
 }
 
-function changeWord() {
-  var cw = wordArray[currentWord];
-  var nw = currentWord == words.length-1 ? wordArray[0] : wordArray[currentWord+1];
-  for (var i = 0; i < cw.length; i++) {
-    animateLetterOut(cw, i);
-  }
-  
-  for (var i = 0; i < nw.length; i++) {
-    nw[i].className = 'letter behind';
-    nw[0].parentElement.style.opacity = 1;
-    animateLetterIn(nw, i);
-  }
-  
-  currentWord = (currentWord == wordArray.length-1) ? 0 : currentWord+1;
-}
+loadJSON("https://data.sfgov.org/resource/vmnk-skih.json?family_name=Asteraceae");
 
-function animateLetterOut(cw, i) {
-  setTimeout(function() {
-		cw[i].className = 'letter out';
-  }, i*80);
-}
-
-function animateLetterIn(nw, i) {
-  setTimeout(function() {
-		nw[i].className = 'letter in';
-  }, 340+(i*80));
-}
-
-function splitLetters(word) {
-  var content = word.innerHTML;
-  word.innerHTML = '';
-  var letters = [];
-  for (var i = 0; i < content.length; i++) {
-    var letter = document.createElement('span');
-    letter.className = 'letter';
-    letter.innerHTML = content.charAt(i);
-    word.appendChild(letter);
-    letters.push(letter);
-  }
-  
-  wordArray.push(letters);
-}
-
-changeWord();
-setInterval(changeWord, 4000);
 
