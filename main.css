@@ -93,6 +93,7 @@ footer p {
 .card-name {
     font-weight: 650;
     font-size: 1.3rem;
+    margin-bottom: 2px;
 }
 
 .view-button {
@@ -105,4 +106,79 @@ footer p {
 
 .bg-dark {
     background-color: #95e9b2 !important;
+}
+.card {
+    top: 0;
+    transition: top ease 0.5s;
+}
+.card:hover {
+    top: -5px;
+}
+
+/* Animation CSS */
+ 
+.come-in {
+  transform: translateY(150px);
+  animation: come-in 1.5s ease forwards;
+}
+.already-visible {
+  transform: translateY(0);
+  animation: none;
+}
+@keyframes come-in {
+  to { transform: translateY(0); }
+}
+
+#jumbo-main {
+    background-image: url('bg.png');
+    background-repeat: no-repeat;
+    background-position-x: right;
+}
+
+.go-button {
+    font-size: 30px;
+    width: 150px;
+    background: #30800c;
+    margin-top: 50px !important;
+}
+.h1, h1 {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+}
+.option-title {
+    font-size: 25px;
+    font-weight: 600;
+}
+.main-title {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+input[type=radio] {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: inset 0 0 0 2px #FFF;
+  border: 2px solid #737373;
+}
+input[type=radio]:checked {
+  background-color: #72D246;
+}
+input[type=radio]:hover {
+  background-color: #BDFF9F;
+}
+
+.radio-text {
+    display: inline;
+    text-align: initial;
+    top: -5px;
+    position: relative;
+}
+
+.go-box {
+    padding-top: 40px;
 }

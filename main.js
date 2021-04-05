@@ -1,13 +1,22 @@
-function loadJSON(url) {
+function loadJSON() {
     let request = new XMLHttpRequest();
+    
+    var family = $('input[name=family]:checked').val()
+    var color = $('input[name=color]:checked').val()
+    
+    if(color == "Any") {
+        var request_url = "https://data.sfgov.org/resource/vmnk-skih.json?family_name=" + family;
+    } else {
+        var request_url = "https://data.sfgov.org/resource/vmnk-skih.json?family_name=" + family + "&flower_color=" + color;
+    }
+    
+    
 
-    request.open('GET', url, false);
+    request.open('GET', request_url, false);
     request.onreadystatechange = function() {
         if (request.readyState == 4 && request.status == 200) {
             const data = JSON.parse(request.responseText);
-            //document.getElementById('content').innerHTML = JSON.stringify(data);
-            //console.log(data.length);
-            
+
         let str = '';
         let html = ``;
         for (var i = 0; i < data.length; i++){
@@ -120,7 +129,6 @@ function loadJSON(url) {
           str += "<br>";
         }
            document.getElementById('content').innerHTML = html; 
-           document.getElementById('content2').innerHTML = str; 
         
         }
     };
@@ -128,5 +136,4 @@ function loadJSON(url) {
 }
 
 loadJSON("https://data.sfgov.org/resource/vmnk-skih.json?family_name=Asteraceae");
-
 
