@@ -7,6 +7,7 @@ A web app that pulls data from the [San Francisco Plant Finder API](http://https
 - html/css/js based
 - Clean modern design with a friendly inviting style
 - Easy to use and understand interface
+- Both desktop and mobile responsive
 
 ## Notes
 
