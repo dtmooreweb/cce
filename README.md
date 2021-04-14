@@ -2,6 +2,9 @@
 
 A web app that pulls data from the [San Francisco Plant Finder API](http://https://data.sfgov.org/Energy-and-Environment/San-Francisco-Plant-Finder-Data/vmnk-skih "San Francisco Plant Finder API") to display flower family and color relational data.
 
+This app can be viewed live here:
+https://dtmoore-cce.herokuapp.com/
+
 ## Goals
 
 - html/css/js based
